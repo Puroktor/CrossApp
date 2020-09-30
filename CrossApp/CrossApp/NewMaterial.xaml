@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CrossApp.NewMaterial">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="6*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                
+                <StackLayout Grid.Column="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Label Text="Название материала" FontSize="Medium" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center" Margin="5" FontAttributes="Bold"/>
+                        <Entry Grid.Row="1" x:Name="name" FontSize="Medium" HorizontalTextAlignment="Center" Margin="5" Placeholder="Введите значение" FontAttributes="Bold"/>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Label Text="Сила, Н" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Medium" Margin="5" FontAttributes="Bold"/>
+                        <Entry Grid.Row="1" x:Name="fource" FontSize="Medium" HorizontalTextAlignment="Center" Keyboard="Numeric"  Margin="5" Placeholder="Введите значение" TextChanged="TextChanged" FontAttributes="Bold"/>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Label Text="Изменение длины, м" FontSize="Medium" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center" Margin="5" FontAttributes="Bold"/>
+                        <Entry Grid.Row="1" x:Name="delta" FontSize="Medium" HorizontalTextAlignment="Center" Keyboard="Numeric" Margin="5" Placeholder="Введите значение" TextChanged="TextChanged" FontAttributes="Bold"/>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Label Text="Изначальная длина, м" FontSize="Medium" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center" Margin="5" FontAttributes="Bold"/>
+                        <Entry Grid.Row="1" x:Name="length" FontSize="Medium" HorizontalTextAlignment="Center" Keyboard="Numeric" Margin="5" Placeholder="Введите значение" TextChanged="TextChanged" FontAttributes="Bold"/>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Text="Площадь воздействия, м²" FontSize="Medium" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center" Margin="5"  FontAttributes="Bold"/>
+                        <Picker x:Name="picker" SelectedIndexChanged="picker_SelectedIndexChanged" Grid.Row="1" Margin="5">
+                            <Picker.Items>
+                                <x:String>Площадь</x:String>
+                                <x:String>Прямоугольник</x:String>
+                                <x:String>Стержень</x:String>
+                            </Picker.Items>
+                        </Picker>
+
+                        <Entry Grid.Row="2" x:Name="a" FontSize="Medium" HorizontalTextAlignment="Center" Keyboard="Numeric" IsVisible="False" Margin="5" TextChanged="TextChanged" FontAttributes="Bold"/>
+                        <Entry Grid.Row="3" x:Name="b" FontSize="Medium" HorizontalTextAlignment="Center" Keyboard="Numeric" IsVisible="False" Margin="5" TextChanged="TextChanged" FontAttributes="Bold"/>
+                    </Grid>
+
+                    <Grid BackgroundColor="LightGray">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Text="Модуль Юнга, Па" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Medium" Margin="5" FontAttributes="Bold"/>
+                        <Entry Grid.Row="1" x:Name="module" FontSize="Medium" HorizontalTextAlignment="Center" Keyboard="Numeric" Margin="5" Placeholder="Здесь будет ваше значение" IsEnabled="False" FontAttributes="Bold" BackgroundColor="LightGray"/>
+                    </Grid>
+
+                    <Button Text="Рассчитать" FontSize="Medium" Margin="5" Clicked="Button_Clicked_1" FontAttributes="Bold"/>
+                    <Button Text="Добавить" FontSize="Medium" Margin="5" Clicked="Button_Clicked" FontAttributes="Bold"/>
+                    <Label FontSize="Medium" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center" Margin="5" TextColor="Red" x:Name="error" FontAttributes="Bold"/>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
